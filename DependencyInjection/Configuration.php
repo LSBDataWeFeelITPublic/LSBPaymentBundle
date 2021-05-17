@@ -17,7 +17,7 @@ use LSB\PaymentBundle\Manager\PaymentTokenManager;
 use LSB\PaymentBundle\Repository\PaymentRepository;
 use LSB\PaymentBundle\Repository\PaymentTokenRepository;
 use LSB\UtilityBundle\DependencyInjection\BaseExtension as BE;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use LSB\UtilityBundle\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
