@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\MappedSuperclass;
 /**
  * @MappedSuperclass
  */
-class PaymentToken extends Token
+class PaymentToken extends Token implements PaymentTokenInterface
 {
 
 }

@@ -1,1 +1,13 @@
 services:
+
+    LSB\PaymentBundle\Factory\PaymentFactory: ~
+
+    lsb_payment_factory_payment:
+        alias: LSB\PaymentBundle\Factory\PaymentFactory
+    LSB\PaymentBundle\Factory\PaymentFactoryInterface: '@LSB\PaymentBundle\Factory\PaymentFactory'
+
+    LSB\PaymentBundle\Factory\PaymentTokenFactory: ~
+
+    lsb_payment_factory_payment_token:
+        alias: LSB\PaymentBundle\Factory\PaymentTokenFactory
+    LSB\PaymentBundle\Factory\PaymentTokenFactoryInterface: '@LSB\PaymentBundle\Factory\PaymentTokenFactory'

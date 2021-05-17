@@ -1,1 +1,9 @@
 services:
+
+    LSB\PaymentBundle\Manager\PaymentManager:
+        arguments:
+            - '@lsb_utility_object_manager'
+
+    LSB\PaymentBundle\Manager\PaymentTokenManager:
+        arguments:
+            - '@lsb_utility_object_manager'

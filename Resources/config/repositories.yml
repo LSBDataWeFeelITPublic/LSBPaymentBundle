@@ -1,1 +1,11 @@
 services:
+
+    LSB\PaymentBundle\Repository\PaymentRepository:
+        arguments:
+            - '@doctrine'
+    LSB\PaymentBundle\Repository\PaymentRepositoryInterface: '@LSB\PaymentBundle\Repository\PaymentRepository'
+
+    LSB\PaymentBundle\Repository\PaymentTokenRepository:
+        arguments:
+            - '@doctrine'
+    LSB\PaymentBundle\Repository\PaymentTokenRepositoryInterface: '@LSB\PaymentBundle\Repository\PaymentTokenRepository'

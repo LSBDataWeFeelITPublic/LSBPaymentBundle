@@ -15,8 +15,6 @@ use Payum\Core\Model\Payment as BasePayment;
  */
 class Payment extends BasePayment implements PaymentInterface
 {
-    const STATUS_PENDING = 10;
-    const STATUS_PAID = 100;
 
     /**
      * @ORM\Column(name="id", type="integer")

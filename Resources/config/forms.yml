@@ -1,1 +1,9 @@
 services:
+
+    LSB\PaymentBundle\Form\PaymentType:
+        tags:
+            - name: form.type
+
+    LSB\PaymentBundle\Form\PaymentTokenType:
+        tags:
+            - name: form.type

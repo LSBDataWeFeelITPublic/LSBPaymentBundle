@@ -3,14 +3,19 @@ declare(strict_types=1);
 
 namespace LSB\PaymentBundle\DependencyInjection;
 
+use LSB\PaymentBundle\Entity\Payment;
 use LSB\PaymentBundle\Entity\PaymentInterface;
-use LSB\PaymentBundle\Entity\EntityTranslationInterface;
-use LSB\PaymentBundle\Factory\EntityFactory;
-use LSB\PaymentBundle\Form\EntityTranslationType;
-use LSB\PaymentBundle\Form\EntityType;
+use LSB\PaymentBundle\Entity\PaymentToken;
+use LSB\PaymentBundle\Entity\PaymentTokenInterface;
+use LSB\PaymentBundle\Factory\PaymentFactory;
+use LSB\PaymentBundle\Factory\PaymentTokenFactory;
+use LSB\PaymentBundle\Form\PaymentTokenType;
+use LSB\PaymentBundle\Form\PaymentType;
 use LSB\PaymentBundle\LSBPaymentBundle;
-use LSB\PaymentBundle\Manager\EntityManager;
-use LSB\PaymentBundle\Repository\EntityRepository;
+use LSB\PaymentBundle\Manager\PaymentManager;
+use LSB\PaymentBundle\Manager\PaymentTokenManager;
+use LSB\PaymentBundle\Repository\PaymentRepository;
+use LSB\PaymentBundle\Repository\PaymentTokenRepository;
 use LSB\UtilityBundle\DependencyInjection\BaseExtension as BE;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -37,17 +42,24 @@ class Configuration implements ConfigurationInterface
             ->scalarNode(BE::CONFIG_KEY_TRANSLATION_DOMAIN)->defaultValue((new \ReflectionClass(LSBPaymentBundle::class))->getShortName())->end()
             ->arrayNode(BE::CONFIG_KEY_RESOURCES)
             ->children()
-            // Start Product
-//            ->resourceNode(
-//                'payment',
-//                Payment::class,
-//                PaymentInterface::class,
-//                PaymentFactory::class,
-//                PaymentRepository::class,
-//                PaymentManager::class,
-//                PaymentType::class
-//            )
-            // End Product
+            ->resourceNode(
+                'payment',
+                Payment::class,
+                PaymentInterface::class,
+                PaymentFactory::class,
+                PaymentRepository::class,
+                PaymentManager::class,
+                PaymentType::class
+            )
+            ->resourceNode(
+                'payment_token',
+                PaymentToken::class,
+                PaymentTokenInterface::class,
+                PaymentTokenFactory::class,
+                PaymentTokenRepository::class,
+                PaymentTokenManager::class,
+                PaymentTokenType::class
+            )
             ->end()
             ->end()
             ->end();
