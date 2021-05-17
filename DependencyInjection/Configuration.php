@@ -51,6 +51,7 @@ class Configuration implements ConfigurationInterface
                 PaymentManager::class,
                 PaymentType::class
             )
+            ->end()
             ->resourceNode(
                 'payment_token',
                 PaymentToken::class,
@@ -60,6 +61,7 @@ class Configuration implements ConfigurationInterface
                 PaymentTokenManager::class,
                 PaymentTokenType::class
             )
+            ->end()
             ->end()
             ->end()
             ->end();
