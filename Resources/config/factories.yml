@@ -11,3 +11,8 @@ services:
     lsb_payment_factory_payment_token:
         alias: LSB\PaymentBundle\Factory\PaymentTokenFactory
     LSB\PaymentBundle\Factory\PaymentTokenFactoryInterface: '@LSB\PaymentBundle\Factory\PaymentTokenFactory'
+
+    LSB\PaymentBundle\Factory\MethodFactory: ~
+    lsb_payment_factory_method:
+        alias: LSB\PaymentBundle\Factory\MethodFactory
+    LSB\PaymentBundle\Factory\MethodFactoryInterface: '@LSB\PaymentBundle\Factory\MethodFactory'

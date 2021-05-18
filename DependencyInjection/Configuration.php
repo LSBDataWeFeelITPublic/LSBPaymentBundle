@@ -3,17 +3,26 @@ declare(strict_types=1);
 
 namespace LSB\PaymentBundle\DependencyInjection;
 
+use LSB\PaymentBundle\Entity\Method;
+use LSB\PaymentBundle\Entity\MethodInterface;
+use LSB\PaymentBundle\Entity\MethodTranslation;
+use LSB\PaymentBundle\Entity\MethodTranslationInterface;
 use LSB\PaymentBundle\Entity\Payment;
 use LSB\PaymentBundle\Entity\PaymentInterface;
 use LSB\PaymentBundle\Entity\PaymentToken;
 use LSB\PaymentBundle\Entity\PaymentTokenInterface;
+use LSB\PaymentBundle\Factory\MethodFactory;
 use LSB\PaymentBundle\Factory\PaymentFactory;
 use LSB\PaymentBundle\Factory\PaymentTokenFactory;
+use LSB\PaymentBundle\Form\MethodTranslationType;
+use LSB\PaymentBundle\Form\MethodType;
 use LSB\PaymentBundle\Form\PaymentTokenType;
 use LSB\PaymentBundle\Form\PaymentType;
 use LSB\PaymentBundle\LSBPaymentBundle;
+use LSB\PaymentBundle\Manager\MethodManager;
 use LSB\PaymentBundle\Manager\PaymentManager;
 use LSB\PaymentBundle\Manager\PaymentTokenManager;
+use LSB\PaymentBundle\Repository\MethodRepository;
 use LSB\PaymentBundle\Repository\PaymentRepository;
 use LSB\PaymentBundle\Repository\PaymentTokenRepository;
 use LSB\UtilityBundle\DependencyInjection\BaseExtension as BE;
@@ -60,6 +69,19 @@ class Configuration implements ConfigurationInterface
                 PaymentTokenRepository::class,
                 PaymentTokenManager::class,
                 PaymentTokenType::class
+            )
+            ->end()
+            ->translatedResourceNode(
+                'method',
+                Method::class,
+                MethodInterface::class,
+                MethodFactory::class,
+                MethodRepository::class,
+                MethodManager::class,
+                MethodType::class,
+                MethodTranslation::class,
+                MethodTranslationInterface::class,
+                MethodTranslationType::class
             )
             ->end()
             ->end()

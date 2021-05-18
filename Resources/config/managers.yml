@@ -1,5 +1,9 @@
 services:
 
+    LSB\PaymentBundle\Manager\MethodManager:
+        arguments:
+            "$objectManager": '@lsb_utility_object_manager'
+
     LSB\PaymentBundle\Manager\PaymentManager:
         arguments:
             "$objectManager": '@lsb_utility_object_manager'

@@ -1,5 +1,13 @@
 services:
 
+    LSB\PaymentBundle\Form\MethodType:
+        tags:
+            - name: form.type
+
+    LSB\PaymentBundle\Form\MethodTranslationType:
+        tags:
+            - name: form.type
+
     LSB\PaymentBundle\Form\PaymentType:
         tags:
             - name: form.type

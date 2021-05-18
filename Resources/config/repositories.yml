@@ -9,3 +9,13 @@ services:
         arguments:
             - '@doctrine'
     LSB\PaymentBundle\Repository\PaymentTokenRepositoryInterface: '@LSB\PaymentBundle\Repository\PaymentTokenRepository'
+
+    LSB\PaymentBundle\Repository\MethodRepository:
+        arguments:
+            - '@doctrine'
+    LSB\PaymentBundle\Repository\MethodRepositoryInterface: '@LSB\PaymentBundle\Repository\MethodRepository'
+
+    LSB\PaymentBundle\Repository\MethodTranslationRepository:
+        arguments:
+            - '@doctrine'
+    LSB\PaymentBundle\Repository\MethodTranslationRepositoryInterface: '@LSB\PaymentBundle\Repository\MethodTranslationRepository'
