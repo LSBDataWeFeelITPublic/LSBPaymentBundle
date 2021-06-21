@@ -6,14 +6,13 @@ namespace LSB\PaymentBundle\Repository;
 use Doctrine\Persistence\ManagerRegistry;
 use LSB\PaymentBundle\Entity\Payment;
 use LSB\UtilityBundle\Repository\BaseRepository;
-use LSB\UtilityBundle\Repository\PaginationInterface;
 use LSB\UtilityBundle\Repository\PaginationRepositoryTrait;
 
 /**
  * Class PaymentRepository
  * @package LSB\PaymentBundle\Repository
  */
-class PaymentRepository extends BaseRepository implements PaymentRepositoryInterface, PaginationInterface
+class PaymentRepository extends BaseRepository implements PaymentRepositoryInterface
 {
     use PaginationRepositoryTrait;
 
