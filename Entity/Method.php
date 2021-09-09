@@ -36,6 +36,12 @@ class Method implements MethodInterface
     protected string $code;
 
     /**
+     * @var bool
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    protected bool $isEnabled = false;
+
+    /**
      * @return string
      */
     public function __toString()
@@ -85,6 +91,24 @@ class Method implements MethodInterface
     public function setCode(string $code): self
     {
         $this->code = $code;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool
+    {
+        return $this->isEnabled;
+    }
+
+    /**
+     * @param bool $isEnabled
+     * @return $this
+     */
+    public function setIsEnabled(bool $isEnabled): self
+    {
+        $this->isEnabled = $isEnabled;
         return $this;
     }
 }

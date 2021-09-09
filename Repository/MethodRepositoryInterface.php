@@ -10,7 +10,9 @@ use LSB\UtilityBundle\Repository\RepositoryInterface;
  * Interface MethodRepositoryInterface
  * @package LSB\PaymentBundle\Repository
  */
-interface MethodRepositoryInterface extends RepositoryInterface, PaginationInterface
+interface MethodRepositoryInterface extends RepositoryInterface
 {
+    public function getEnabled(): array;
 
+    public function getAll(): array;
 }
