@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\MappedSuperclass;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use LSB\ProductBundle\Entity\ProductInterface;
 use LSB\UtilityBundle\Translatable\TranslatableTrait;
 use LSB\UtilityBundle\Traits\CreatedUpdatedTrait;
 use LSB\UtilityBundle\Traits\UuidTrait;
@@ -40,6 +41,13 @@ class Method implements MethodInterface
      * @ORM\Column(type="boolean", nullable=false)
      */
     protected bool $isEnabled = false;
+
+    /**
+     * @var ProductInterface|null
+     * @ORM\ManyToOne(targetEntity="LSB\ProductBundle\Entity\ProductInterface")
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    protected ?ProductInterface $product = null;
 
     /**
      * @return string
@@ -111,4 +119,24 @@ class Method implements MethodInterface
         $this->isEnabled = $isEnabled;
         return $this;
     }
+
+    /**
+     * @return ProductInterface|null
+     */
+    public function getProduct(): ?ProductInterface
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param ProductInterface|null $product
+     * @return $this
+     */
+    public function setProduct(?ProductInterface $product): static
+    {
+        $this->product = $product;
+        return $this;
+    }
+
+
 }
